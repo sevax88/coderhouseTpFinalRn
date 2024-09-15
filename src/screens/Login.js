@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Pressable } from 'react-native'
+import { StyleSheet, Text, View,Pressable, ImageBackground } from 'react-native'
 import { colors } from '../global/colors'
 import { useEffect, useState } from 'react'
 import InputForm from '../components/InputForm'
@@ -21,8 +21,8 @@ const Login = ({navigation}) => {
 
     useEffect(()=>{
       if(isError) {
-        setErrorEmail("email o contraseña invalida")
-        setErrorPassword("email o contraseña invalida")
+        setErrorEmail("email o password invalid")
+        setErrorPassword("email o password not invalid")
       }
     },[isError])
 
@@ -72,10 +72,10 @@ const Login = ({navigation}) => {
                 isSecure={true}
                 error={errorPassword}
             />
-            <SubmitButton onPress={onSubmit} title="Iniciar Sesion"/>
-            <Text style={styles.sub}>No tenes una cuenta?</Text>
+            <SubmitButton onPress={onSubmit} title="Login"/>
+            <Text style={styles.sub}>You dont have an account? </Text>
             <Pressable onPress={()=> navigation.navigate("Register")} >
-                <Text style={styles.subLink}>Registro</Text>
+                <Text style={styles.subLink}>Register </Text>
             </Pressable>
         </View>
     </View>
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
       },
       container:{
         width:"90%",
-        backgroundColor:colors.green2,
-        gap:15,
+        backgroundColor:colors.blue2,
+        gap:25,
         borderRadius:10,
         justifyContent:"center",
         alignItems:"center",
@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
       },
       sub:{
         fontSize:14,
-        fontFamily:"Josefin"
+        fontFamily:"Josefin",
+        color:'white'
       },
       subLink:{
         fontSize:14,

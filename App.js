@@ -30,7 +30,7 @@ export default function App() {
       <Provider store={store}>
         <MainNavigator/>
       </Provider>
-      <StatusBar style="light" backgroundColor={colors.green3} />
+      <StatusBar style="light" backgroundColor={colors.blue3} />
     </>
   )
 }

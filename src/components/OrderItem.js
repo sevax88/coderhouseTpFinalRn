@@ -26,7 +26,7 @@ export default OrderItem
 
 const styles = StyleSheet.create({
     container:{
-        borderColor:colors.green3,
+        borderColor:colors.blue3,
         borderWidth:2,
         width:"90%",
         marginHorizontal:"5%",

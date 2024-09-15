@@ -23,7 +23,7 @@ export default ProductItem
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:colors.green1,
+        backgroundColor:colors.blue1,
         marginVertical:10,
         flexDirection:"row",
         alignItems:"center",

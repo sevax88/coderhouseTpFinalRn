@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         flex:1
     },
     containerConfirm:{
-        backgroundColor:colors.green2,
+        backgroundColor:colors.blue2,
         padding:20,
         flexDirection:"row",
         justifyContent:"space-between"

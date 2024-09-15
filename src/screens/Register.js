@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
       },
       container:{
         width:"90%",
-        backgroundColor:colors.green2,
+        backgroundColor:colors.blue2,
         gap:15,
         borderRadius:10,
         justifyContent:"center",

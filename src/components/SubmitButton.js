@@ -5,7 +5,7 @@ import { colors } from '../global/colors'
 const SubmitButton = ({title,onPress}) => {
   return (
     <Pressable style={styles.button} onPress={onPress}>
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text}> {title} </Text>
     </Pressable>
   )
 }
@@ -14,8 +14,8 @@ export default SubmitButton
 
 const styles = StyleSheet.create({
     button:{
-        width:"60%",
-        backgroundColor:colors.green1,
+        width:"90%",
+        backgroundColor:colors.blue1,
         padding:10,
         alignItems:"center",
         borderRadius:10
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     text:{
         textAlign:"center",
         color:"white",
-        fontSize:18
+        fontSize:16
     }
 })

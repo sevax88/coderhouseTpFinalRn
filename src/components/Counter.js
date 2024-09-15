@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         flexDirection:"row"
     },
     button:{
-        backgroundColor:colors.green3,
+        backgroundColor:colors.blue3,
         minWidth:50,
         alignItems:"center",
         justifyContent:"center",
