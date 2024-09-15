@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import {StyleSheet, Text, View, Pressable, ImageBackground} from 'react-native'
 import { colors } from '../global/colors'
 import InputForm from '../components/InputForm'
 import SubmitButton from '../components/SubmitButton'
@@ -56,68 +56,81 @@ const Register = ({navigation}) => {
       }
     }
 
-  return (
-    <View style={styles.main}>
-        <View style={styles.container}>
-            <InputForm
-                label="Email"
-                value={email}
-                onChangeText={(t) => setEmail(t)}
-                isSecure={false}
-                error={errorEmail}
-            />
-            <InputForm
-                label="Password"
-                value={password}
-                onChangeText={(t) => setPassword(t)}
-                isSecure={true}
-                error = {errorPassword}
-            />
-            <InputForm
-                label="Confirmar Password"
-                value={confirmPassword}
-                onChangeText={(t) => setConfirmPassword(t)}
-                isSecure={true}
-                error={errorConfirmPassword}
-            />
-            <SubmitButton onPress={onSubmit} title="Registrarme"/>
-            <Text style={styles.sub}>ya tenes una cuenta?</Text>
-            <Pressable onPress={()=> navigation.navigate("Login")} >
-                <Text style={styles.subLink}>Incio de sesion</Text>
-            </Pressable>
+    return (
+        <View style={styles.main}>
+            <ImageBackground
+                source={require('../../assets/background.jpg')}
+                style={styles.backgroundImage}
+            >
+                <View style={styles.container}>
+                    <InputForm
+                        label="Email"
+                        value={email}
+                        onChangeText={(t) => setEmail(t)}
+                        isSecure={false}
+                        error={errorEmail}
+                    />
+                    <InputForm
+                        label="Password"
+                        value={password}
+                        onChangeText={(t) => setPassword(t)}
+                        isSecure={true}
+                        error={errorPassword}
+                    />
+                    <InputForm
+                        label="Confirmar Password"
+                        value={confirmPassword}
+                        onChangeText={(t) => setConfirmPassword(t)}
+                        isSecure={true}
+                        error={errorConfirmPassword}
+                    />
+                    <SubmitButton onPress={onSubmit} title="Registrarme"/>
+                    <Text style={styles.sub}>Do you already have an account?</Text>
+                    <Pressable onPress={() => navigation.navigate("Login")}>
+                        <Text style={styles.subLink}>Login</Text>
+                    </Pressable>
+                </View>
+            </ImageBackground>
         </View>
-    </View>
-  )
+    )
 }
 
 export default Register
 
 const styles = StyleSheet.create({
-    main:{
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center"
-      },
-      container:{
-        width:"90%",
-        backgroundColor:colors.blue2,
-        gap:15,
-        borderRadius:10,
-        justifyContent:"center",
-        alignItems:"center",
-        paddingVertical:20
-      },
-      title:{
-        fontSize:22,
-        fontFamily:"Lobster"
-      },
-      sub:{
-        fontSize:14,
-        fontFamily:"Josefin"
-      },
-      subLink:{
-        fontSize:14,
-        fontFamily:"Josefin",
-        color:"blue"
-      }
+    main: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    backgroundImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    container: {
+        width: "90%",
+        backgroundColor: colors.blue2,
+        gap: 15,
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingVertical: 20
+    },
+    title: {
+        fontSize: 22,
+        fontFamily: "Lobster"
+    },
+    sub: {
+        fontSize: 14,
+        fontFamily: "Josefin",
+        color: 'white'
+    },
+    subLink: {
+        fontSize: 14,
+        fontFamily: "Josefin",
+        color: "blue"
+    }
 })
