@@ -13,12 +13,12 @@ const ShopStack = () => {
                     return {
                         header: () => <Header title={
                             route.name === "Home" ?
-                                "Bienvenido" 
+                                "Welcome"
                             : 
                                 route.name === "Products" ?
                                     route.params.category
                                 :
-                                    "Detalle del Producto"
+                                    "Product details"
                         } />
                     }
                 }

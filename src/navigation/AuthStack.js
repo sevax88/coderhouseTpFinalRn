@@ -7,20 +7,20 @@ import Header from '../components/Header'
 const Stack = createNativeStackNavigator()
 
 const AuthStack = () => {
-  return (
-   <Stack.Navigator
-    screenOptions={(
-        ({route}) => {
-            return {
-                header: () => <Header title={route.name === "Login" ? "Inicio de Sesion":"Registrarme"}/>
-            }
-        }
-)}
-   >
-        <Stack.Screen name='Login' component={Login}/>
-        <Stack.Screen name='Register' component={Register}/>
-   </Stack.Navigator>
-  )
+    return (
+        <Stack.Navigator
+            screenOptions={(
+                ({route}) => {
+                    return {
+                        header: () => <Header title={route.name === "Login" ? "Login" : "Register"}/>
+                    }
+                }
+            )}
+        >
+            <Stack.Screen name='Login' component={Login}/>
+            <Stack.Screen name='Register' component={Register}/>
+        </Stack.Navigator>
+    )
 }
 
 export default AuthStack

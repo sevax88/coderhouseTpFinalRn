@@ -12,7 +12,7 @@ const ProfileStack = () => {
             screenOptions={(
                 () => {
                     return {
-                        header: () => <Header title="Perfil"/>
+                        header: () => <Header title="Profile "/>
                     }
                 }
             )}
