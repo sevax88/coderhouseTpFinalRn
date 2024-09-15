@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         padding:2,
         fontFamily:"Josefin",
         fontSize:14,
+        color:'white',
         marginHorizontal:"5%",
         marginVertical:10
       },

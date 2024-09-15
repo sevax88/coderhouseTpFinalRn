@@ -55,62 +55,74 @@ const Login = ({navigation}) => {
         }
     }
 
-  return (
-    <View style={styles.main}>
-        <View style={styles.container}>
-            <InputForm
-                label="Email"
-                value={email}
-                onChangeText={(t) => setEmail(t)}
-                isSecure={false}
-                error={errorEmail}
-            />
-            <InputForm
-                label="Password"
-                value={password}
-                onChangeText={(t) => setPassword(t)}
-                isSecure={true}
-                error={errorPassword}
-            />
-            <SubmitButton onPress={onSubmit} title="Login"/>
-            <Text style={styles.sub}>You dont have an account? </Text>
-            <Pressable onPress={()=> navigation.navigate("Register")} >
-                <Text style={styles.subLink}>Register </Text>
-            </Pressable>
+    return (
+        <View style={styles.main}>
+            <ImageBackground
+                source={require('../../assets/background.jpg')}
+                style={styles.backgroundImage}>
+                <View style={styles.container}>
+                    <InputForm
+                        label="Email"
+                        value={email}
+                        onChangeText={(t) => setEmail(t)}
+                        isSecure={false}
+                        error={errorEmail}
+                    />
+                    <InputForm
+                        label="Password"
+                        value={password}
+                        onChangeText={(t) => setPassword(t)}
+                        isSecure={true}
+                        error={errorPassword}
+                    />
+                    <SubmitButton onPress={onSubmit} title="Login"/>
+                    <Text style={styles.sub}>You dont have an account? </Text>
+                    <Pressable onPress={() => navigation.navigate("Register")}>
+                        <Text style={styles.subLink}>Register </Text>
+                    </Pressable>
+                </View>
+            </ImageBackground>
         </View>
-    </View>
-  )
+    )
 }
 
 export default Login
 
 const styles = StyleSheet.create({
-    main:{
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center"
-      },
-      container:{
-        width:"90%",
-        backgroundColor:colors.blue2,
-        gap:25,
-        borderRadius:10,
-        justifyContent:"center",
-        alignItems:"center",
-        paddingVertical:20
-      },
-      title:{
-        fontSize:22,
-        fontFamily:"Lobster"
-      },
-      sub:{
-        fontSize:14,
-        fontFamily:"Josefin",
-        color:'white'
-      },
-      subLink:{
-        fontSize:14,
-        fontFamily:"Josefin",
-        color:"blue"
-      }
+    main: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    backgroundImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+    ,
+    container: {
+        width: "90%",
+        backgroundColor: 'rgba(0, 0, 139, 0.5)',
+        gap: 25,
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingVertical: 20
+    },
+    title: {
+        fontSize: 22,
+        fontFamily: "Lobster"
+    },
+    sub: {
+        fontSize: 14,
+        fontFamily: "Josefin",
+        color: 'white'
+    },
+    subLink: {
+        fontSize: 14,
+        fontFamily: "Josefin",
+        color: "blue"
+    }
 })
