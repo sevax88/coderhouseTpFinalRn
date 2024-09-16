@@ -109,4 +109,3 @@ Una aplicación de comercio electrónico desarrollada con React Native que ofrec
 
 ## Contacto
 
-Para preguntas o soporte, contacta a maxi_rosanda@hotmail.com.

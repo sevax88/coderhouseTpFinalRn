@@ -37,7 +37,7 @@ const MyProfile = ({navigation}) => {
             />
             <SubmitButton title="Add profile image" onPress={() => navigation.navigate("ImageSelector")}/>
             <SubmitButton title="Add delivery address" onPress={() => navigation.navigate("LocationSelector")}/>
-            <Text> Addreses: You can select one for delivery </Text>
+            <Text> Addresses: You can select one for delivery </Text>
             <FlatList
                 data={user.locations}
                 keyExtractor={item => item.id}

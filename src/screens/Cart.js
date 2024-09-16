@@ -10,6 +10,7 @@ import EmptyState from "../components/EmptyState";
 const Cart = ({navigation}) => {
 
   const cart = useSelector(state => state.cart)
+  const addressSelected = useSelector(state => state.address)
   const localId = useSelector(state => state.auth.localId)
   const [triggerPostOrder] = usePostOrderMutation()
   const dispatch = useDispatch()
@@ -18,7 +19,8 @@ const Cart = ({navigation}) => {
     const createdAt = new Date().toLocaleString()
     const order = {
       ...cart,
-      createdAt
+      createdAt,
+      selectedAddressId: addressSelected?.selectedAddressId
     }
     triggerPostOrder({localId,order})
     dispatch(clearCart())
@@ -35,7 +37,7 @@ const Cart = ({navigation}) => {
       />
       <View style={styles.containerConfirm}>
         <Pressable onPress={handleAddOrder}>
-          <Text style={styles.textConfirm}>Confirmar</Text>
+          <Text style={styles.textConfirm}>Confirm </Text>
         </Pressable>
         <Text style={styles.textConfirm}>Total: {cart.total} $</Text>
       </View>
