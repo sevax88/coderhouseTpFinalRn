@@ -54,20 +54,48 @@ const LocationSelector = ({navigation}) => {
         navigation.navigate("MyProfile")
     }
 
-  return (
-    <View style={styles.container}>
-      <Text>Direccion: {address}</Text>
-      <MapPreview location={location}/>
-      <SubmitButton title="Confirmar Ubicacion" onPress={handleConfirmLocation}/>
-
-    </View>
-  )
+    return (
+        <View style={styles.container}>
+            <View style={styles.addressContainer}>
+                <Text style={styles.addressText}>Address: {address}</Text>
+            </View>
+            <View style={styles.mapContainer}>
+                <MapPreview location={location} />
+            </View>
+            <SubmitButton title="Confirm Location" onPress={handleConfirmLocation} />
+        </View>
+    );
 }
 
 export default LocationSelector
 
 const styles = StyleSheet.create({
-    container:{
-        marginTop:100
-    }
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+        gap: 20,
+    },
+    addressText: {
+        textAlign: 'center',
+    },
+    addressContainer: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        borderRadius: 10,
+        width: '100%',
+        alignItems: 'center',
+    },
+    mapContainer: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        borderRadius: 10,
+        width: '100%',
+        height: 300,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })
