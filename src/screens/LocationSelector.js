@@ -5,7 +5,7 @@ import MapPreview from '../components/MapPreview';
 import { mapStaticApi } from '../firebase/googleApi'
 import SubmitButton from '../components/SubmitButton'
 import { usePostUserLocationMutation } from '../services/users';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const LocationSelector = ({navigation}) => {
 
@@ -16,6 +16,7 @@ const LocationSelector = ({navigation}) => {
     const [address,setAddress] = useState("")
     const localId = useSelector(state => state.auth.localId)
     const [triggerPostUserLocation] = usePostUserLocationMutation()
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         (
@@ -50,7 +51,7 @@ const LocationSelector = ({navigation}) => {
             ...location,
             address
         }
-        triggerPostUserLocation({localId,userLocation})
+        triggerPostUserLocation({localId, userLocation})
         navigation.navigate("MyProfile")
     }
 

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     selectedAddressId: null,
+    selectedAddressString: ""
 };
 
 export const addressSlice = createSlice({
@@ -11,11 +12,14 @@ export const addressSlice = createSlice({
         setSelectedAddressId(state, action) {
             state.selectedAddressId = action.payload;
         },
+        setSelectedAddressString(state, action) {
+            state.selectedAddressString= action.payload;
+        },
         clearSelectedAddressId(state) {
             state.selectedAddressId = null;
         },
     },
 });
 
-export const { setSelectedAddressId, clearSelectedAddressId } = addressSlice.actions;
+export const { setSelectedAddressId, setSelectedAddressString, clearSelectedAddressId } = addressSlice.actions;
 export default addressSlice.reducer;

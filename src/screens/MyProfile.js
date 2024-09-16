@@ -5,7 +5,7 @@ import { useGetUserQuery } from '../services/users'
 import {useDispatch, useSelector} from 'react-redux'
 import LoadingSpinner from '../components/LoadingSpinner'
 import {colors} from "../global/colors";
-import { setSelectedAddressId } from '../features/address/addressSlice';
+import {setSelectedAddressId, setSelectedAddressString} from '../features/address/addressSlice';
 
 
 const MyProfile = ({navigation}) => {
@@ -20,8 +20,12 @@ const MyProfile = ({navigation}) => {
         if (isError) console.log(error)
     }, [isSuccess, isError])
 
-    const handleSelectAddress = (address) => {
-        dispatch(setSelectedAddressId(address));
+    const handleSelectAddress = (addressId) => {
+        dispatch(setSelectedAddressId(addressId))
+    }
+
+    const handleSelectAddressString = (addressString) => {
+        dispatch(setSelectedAddressString(addressString))
     }
 
     if (isLoading) return <LoadingSpinner/>
@@ -37,7 +41,7 @@ const MyProfile = ({navigation}) => {
             />
             <SubmitButton title="Add profile image" onPress={() => navigation.navigate("ImageSelector")}/>
             <SubmitButton title="Add delivery address" onPress={() => navigation.navigate("LocationSelector")}/>
-            <Text> Addresses: You can select one for delivery </Text>
+            <Text style={styles.text}> Addresses: Select one</Text>
             <FlatList
                 data={user.locations}
                 keyExtractor={item => item.id}
@@ -45,11 +49,11 @@ const MyProfile = ({navigation}) => {
                     <TouchableOpacity
                         style={[
                             styles.card,
-                            selectedAddressId === item.address && styles.selectedCard
+                            selectedAddressId === item.id && styles.selectedCard
                         ]}
                         onPress={() => {
-                            console.log(item);
-                            handleSelectAddress(item.address)
+                            handleSelectAddress(item.id)
+                            handleSelectAddressString(item.address)
                         }
                     }
                     >
@@ -67,6 +71,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 70,
         alignItems: "center",
+        justifyContent: "center",
         gap: 20,
         flex: 1
     },
@@ -90,8 +95,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "white",
     },
-
     selectedCard: {
         backgroundColor: "red",
-    }
+    },
+    text: {
+        width: "100%",
+        fontSize: 16,
+        color: '#000',
+        textAlign: "center"
+    },
 })
