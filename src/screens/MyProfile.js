@@ -2,15 +2,18 @@ import {StyleSheet, Text, View, Image, FlatList, TouchableOpacity} from 'react-n
 import React, {useEffect, useState} from 'react'
 import SubmitButton from '../components/SubmitButton'
 import { useGetUserQuery } from '../services/users'
-import { useSelector } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import LoadingSpinner from '../components/LoadingSpinner'
 import {colors} from "../global/colors";
+import { setSelectedAddressId } from '../features/address/addressSlice';
+
 
 const MyProfile = ({navigation}) => {
     const localId = useSelector(state => state.auth.localId)
     const {data: user, isSuccess, isLoading, isError, error} = useGetUserQuery({localId})
+    const dispatch = useDispatch()
 
-    const [selectedAddressId, setSelectedAddressId] = useState(null)
+    const selectedAddressId = useSelector(state => state.address.selectedAddressId);
 
     useEffect(() => {
         if (isSuccess) console.log(user)
@@ -18,7 +21,7 @@ const MyProfile = ({navigation}) => {
     }, [isSuccess, isError])
 
     const handleSelectAddress = (id) => {
-        setSelectedAddressId(id)
+        dispatch(setSelectedAddressId(id));
     }
 
     if (isLoading) return <LoadingSpinner/>
