@@ -19,13 +19,15 @@ const ItemListCategories = ({route}) => {
   },[category,isSuccess])
 
   const onSearch = (input) => {
-
-    if(input){
-      setProductsFiltered(productsFiltered.filter(product => product.title.includes(input) ))
-    }else{
+    console.log(input)
+    if (input) {
+      setProductsFiltered(productsFiltered.filter(product =>
+          product.title.toLowerCase().includes(input.toLowerCase()) ||
+          product.description.toLowerCase().includes(input.toLowerCase())
+      ))
+    } else {
       setProductsFiltered(products)
     }
-   
   }
 
   if(isLoading) return <LoadingSpinner/>
@@ -47,6 +49,7 @@ export default ItemListCategories
 
 const styles = StyleSheet.create({
   container:{
-    width:"100%"
+    width:"100%",
+    flex: 1
   }
 })

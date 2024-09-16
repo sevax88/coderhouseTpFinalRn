@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 const ProductItem = ({product}) => {
 
-  const {width, height} = useWindowDimensions()
+  const {width} = useWindowDimensions()
   const navigation = useNavigation()
 
   return (
@@ -13,7 +13,7 @@ const ProductItem = ({product}) => {
       <Image
         style={styles.image}
         resizeMode='cover'
-        source={{uri:product.thumbnail}}
+        source={{uri:product.image_url}}
       />
     </Pressable>
   )
@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         borderRadius:3
     },
     title:{
-        width:"70%"
+        width:"70%",
+        color:"white",
     },
     titleMin:{
       fontSize:14

@@ -1,5 +1,4 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import { colors } from '../global/colors'
 import { useNavigation } from '@react-navigation/native'
 import {LinearGradient} from "expo-linear-gradient";
 

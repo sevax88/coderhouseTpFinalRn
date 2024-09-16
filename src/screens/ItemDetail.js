@@ -26,7 +26,7 @@ const ItemDetail = ({route}) => {
         <Image
           style={styles.image}
           resizeMode='contain'
-          source={{uri:product.thumbnail}}
+          source={{uri:product.image_url}}
         />
         <View style={styles.containerText}>
           <Text style={styles.title}>{product.title}</Text>
