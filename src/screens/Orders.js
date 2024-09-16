@@ -3,6 +3,7 @@ import OrderItem from '../components/OrderItem'
 import {  useGetOrdersByUserQuery } from '../services/orders'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { useSelector } from 'react-redux'
+import EmptyState from "../components/EmptyState";
 
 const Orders = () => {
 
@@ -13,7 +14,7 @@ const Orders = () => {
 
   if(isLoading) return <LoadingSpinner/>
 
-  if(orders.length === 0) return <View><Text>vacio</Text></View>
+  if(orders.length === 0) return <EmptyState/>
   return (
     <View>
       <FlatList

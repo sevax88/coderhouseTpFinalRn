@@ -5,6 +5,7 @@ import { colors } from '../global/colors'
 import { useDispatch, useSelector } from 'react-redux'
 import { usePostOrderMutation } from '../services/orders'
 import { clearCart } from '../features/cart/cartSlice'
+import EmptyState from "../components/EmptyState";
 
 const Cart = ({navigation}) => {
 
@@ -24,7 +25,7 @@ const Cart = ({navigation}) => {
     navigation.navigate("OrdersStack")
 
   }
-  if(cart.total === 0) return <View><Text>vacio</Text></View>
+  if(cart.total === 0) return <EmptyState/>
   return (
     <View style={styles.container}>
       <FlatList
