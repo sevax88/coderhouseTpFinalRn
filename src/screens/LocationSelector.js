@@ -36,10 +36,11 @@ const LocationSelector = ({navigation}) => {
         (
             async () => {
                 if(location.latitude){
-                const urlReverseGeoding = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.latitude},${location.longitude}
-                                           &key=${mapStaticApi}`
-                const response  = await fetch(urlReverseGeoding)
+                const urlReverseGeocoding = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.latitude},${location.longitude}&key=${mapStaticApi}`
+                const response  = await fetch(urlReverseGeocoding)
                 const data = await response.json()
+                console.log(urlReverseGeocoding)
+                console.log(data)
                 setAddress(data.results[0].formatted_address)
                 }
             }

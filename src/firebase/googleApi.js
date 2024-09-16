@@ -1,1 +1,1 @@
-export const mapStaticApi = "AIzaSyAoUKsaLwJwT--JlMJxOTOmq1bYlGX14EA"
+export const mapStaticApi = "AIzaSyCjGPjbqeNWOmg7WmMyftVaPFTZ346y-6o"
