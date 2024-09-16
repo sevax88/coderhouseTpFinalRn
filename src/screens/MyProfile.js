@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View,Image,FlatList } from 'react-native'
-import React, { useEffect } from 'react'
+import {StyleSheet, Text, View, Image, FlatList, TouchableOpacity} from 'react-native'
+import React, {useEffect, useState} from 'react'
 import SubmitButton from '../components/SubmitButton'
 import { useGetUserQuery } from '../services/users'
 import { useSelector } from 'react-redux'
@@ -9,10 +9,17 @@ import {colors} from "../global/colors";
 const MyProfile = ({navigation}) => {
     const localId = useSelector(state => state.auth.localId)
     const {data: user, isSuccess, isLoading, isError, error} = useGetUserQuery({localId})
+
+    const [selectedAddressId, setSelectedAddressId] = useState(null)
+
     useEffect(() => {
         if (isSuccess) console.log(user)
         if (isError) console.log(error)
     }, [isSuccess, isError])
+
+    const handleSelectAddress = (id) => {
+        setSelectedAddressId(id)
+    }
 
     if (isLoading) return <LoadingSpinner/>
     return (
@@ -27,14 +34,20 @@ const MyProfile = ({navigation}) => {
             />
             <SubmitButton title="Add profile image" onPress={() => navigation.navigate("ImageSelector")}/>
             <SubmitButton title="Add delivery address" onPress={() => navigation.navigate("LocationSelector")}/>
-            <Text> Addreses </Text>
+            <Text> Addreses: You can select one for delivery </Text>
             <FlatList
                 data={user.locations}
                 keyExtractor={item => item.id}
-                renderItem={({ item }) => (
-                    <View style={styles.card}>
+                renderItem = {({ item }) => (
+                    <TouchableOpacity
+                        style={[
+                            styles.card,
+                            selectedAddressId === item.id && styles.selectedCard
+                        ]}
+                        onPress={() => handleSelectAddress(item.id)}
+                    >
                         <Text style={styles.addressText}>{item.address}</Text>
-                    </View>
+                    </TouchableOpacity>
                 )}
             />
         </View>
@@ -62,12 +75,16 @@ const styles = StyleSheet.create({
         shadowColor: "#000",
         shadowOpacity: 0.1,
         shadowRadius: 5,
-        shadowOffset: { width: 0, height: 2 },
-        elevation: 5, // Para Android
+        shadowOffset: {width: 0, height: 2},
+        elevation: 5,
         width: 300,
     },
     addressText: {
         fontSize: 12,
-        color:"white",
+        color: "white",
     },
+
+    selectedCard: {
+        backgroundColor: "red",
+    }
 })
