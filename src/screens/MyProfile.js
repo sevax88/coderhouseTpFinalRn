@@ -20,8 +20,8 @@ const MyProfile = ({navigation}) => {
         if (isError) console.log(error)
     }, [isSuccess, isError])
 
-    const handleSelectAddress = (id) => {
-        dispatch(setSelectedAddressId(id));
+    const handleSelectAddress = (address) => {
+        dispatch(setSelectedAddressId(address));
     }
 
     if (isLoading) return <LoadingSpinner/>
@@ -45,9 +45,13 @@ const MyProfile = ({navigation}) => {
                     <TouchableOpacity
                         style={[
                             styles.card,
-                            selectedAddressId === item.id && styles.selectedCard
+                            selectedAddressId === item.address && styles.selectedCard
                         ]}
-                        onPress={() => handleSelectAddress(item.id)}
+                        onPress={() => {
+                            console.log(item);
+                            handleSelectAddress(item.address)
+                        }
+                    }
                     >
                         <Text style={styles.addressText}>{item.address}</Text>
                     </TouchableOpacity>
