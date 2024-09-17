@@ -9,7 +9,9 @@ const CartItem = ({item}) => {
       <View style={styles.containerText}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.brand}>{item.brand}</Text>
-        <Text style={styles.price}>{item.price} $</Text>
+        <Text style={styles.price}>Unit Price {item.price} $</Text>
+        <Text style={styles.quantity}>Quantity: {item.quantity} </Text>
+
       </View>
       <Entypo name="trash" size={48} color="black" />
     </View>
@@ -43,6 +45,11 @@ const styles = StyleSheet.create({
         fontSize:16
     },
     price:{
+        color:"white",
+        fontSize:16,
+        fontWeight:"bold"
+    },
+    quantity:{
         color:"white",
         fontSize:16,
         fontWeight:"bold"

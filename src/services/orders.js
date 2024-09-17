@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { URL_FIREBASE } from '../firebase/database'
+import {log} from "expo/build/devtools/logger";
 
 export const ordersApi = createApi({
     reducerPath:"ordersApi",
@@ -19,13 +20,16 @@ export const ordersApi = createApi({
         getOrderByUser:builder.query({
             query:({localId,orderId}) => `/orders/${localId}/${orderId}.json`
         }),
-        postOrder:builder.mutation({
-            query:({localId,order}) => ({
-                url:`/orders/${localId}.json`,
-                method:"POST",
-                body:order
-            }),
-            invalidatesTags:["order"]
+        postOrder: builder.mutation({
+            query: ({localId, order}) => {
+                console.log(order)
+                return {
+                    url: `/orders/${localId}.json`,
+                    method: "POST",
+                    body: order
+                }
+            },
+            invalidatesTags: ["order"]
         })
 
     })

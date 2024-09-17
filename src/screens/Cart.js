@@ -20,7 +20,7 @@ const Cart = ({navigation}) => {
     const order = {
       ...cart,
       createdAt,
-      selectedAddressString: addressSelected?.selectedAddressString
+      selectedAddressString: addressSelected?.selectedAddressString,
     }
     triggerPostOrder({localId,order})
     dispatch(clearCart())
