@@ -1,111 +1,97 @@
 # E-Commerce App - React Native
+An e-commerce application developed with React Native that offers a complete and user-friendly shopping experience.
+## Main Features
+### Account Screen
 
-Una aplicación de comercio electrónico desarrollada con React Native que ofrece una experiencia de compra completa y fácil de usar.
+- **Secure Access:** Only authenticated users can access the profile screen and make purchases.
+- **User Information:** Displays user details such as name and address.
+  <img src="./screenshot/Screenshot_1726010585.png" width="300" >
+  <img src="./screenshot/Screenshot_1726010674.png" width="300" >
 
-## Funcionalidades Principales
+### Authentication with Firebase
+- Utilizes Firebase authentication system to manage user access.
+- Allows users to log in and register securely.
 
-### Pantalla de Cuenta
+### Categories Screen
+- Displays a selection of categories in cards.
+- Clicking on a category navigates to the corresponding product screen.
 
-- **Acceso seguro:** Solo los usuarios autenticados pueden acceder a la pantalla de perfil y realizar compras.
-- **Información del usuario:** Muestra detalles del usuario, como nombre y dirección.
+### Products Screen
+- Lists all products in cards with name and photo.
+- Includes a search bar to filter products by name.
+- Clicking on a product navigates to the product details screen.
 
-<img src="./screenshot/Screenshot_1726010585.png" width="300" >
-<img src="./screenshot/Screenshot_1726010674.png" width="300" >
+### Product Details Screen
+- Provides a detailed description of the product.
+- Displays price and available stock.
+- Allows adding the product to the cart.
+  <img src="./screenshot/Screenshot_1705910438.png" width="300" >
+  <img src="./screenshot/Screenshot_1705910442.png" width="300" >
+  <img src="./screenshot/Screenshot_1705910445.png" width="300" >
 
 
-### Autenticación con Firebase
-
-- Utiliza el sistema de autenticación de Firebase para gestionar el acceso de usuarios.
-- Permite a los usuarios iniciar sesión y registrarse de manera segura.
-
-### Pantalla de Categorías
-
-- Muestra una selección de categorías en tarjetas.
-- Al hacer clic en una categoría, se navega a la pantalla de productos correspondiente.
-
-### Pantalla de Productos
-
-- Lista todos los productos en tarjetas con nombre y foto.
-- Incluye un buscador para filtrar productos por nombre.
-- Al hacer clic en un producto, se navega a la pantalla de detalles del producto.
-
-### Pantalla de Detalles del Producto
-
-- Proporciona una descripción detallada del producto.
-- Muestra el precio y el stock disponible.
-- Permite agregar el producto al carrito.
-
-<img src="./screenshot/Screenshot_1705910438.png" width="300" >
-<img src="./screenshot/Screenshot_1705910442.png" width="300" >
-<img src="./screenshot/Screenshot_1705910445.png" width="300" >
-
-### Navegación Inferior
-
-```javascript 
-
+### Bottom Navigation
+```javascript
    const TabNavigator = () => {
   return (
         <Tab.Navigator
           screenOptions={{
-            headerShown:false,
-            tabBarShowLabel:false,
+            headerShown: false,
+            tabBarShowLabel: false,
             tabBarStyle: styles.tabBar
-
           }}
         >
           <Tab.Screen
              name="ShopStack"
              component={ShopStack}
              options={{
-              tabBarIcon:({focused}) => <TabIcon icon="shop" label="Productos" focused={focused}/>
+              tabBarIcon: ({focused}) => <TabIcon icon="shop" label="Products" focused={focused}/>
              }}
           />
           <Tab.Screen 
               name="CartStack" 
               component={CartStack}
               options={{
-                tabBarIcon:({focused}) =>  <TabIcon icon="shopping-cart" label="Carrito" focused={focused}/> 
+                tabBarIcon: ({focused}) => <TabIcon icon="shopping-cart" label="Cart" focused={focused}/> 
               }}
              />
              <Tab.Screen 
               name="OrdersStack" 
               component={OrdersStack}
               options={{
-                tabBarIcon:({focused}) => <TabIcon icon="list" label="Ordenes" focused={focused}/> 
+                tabBarIcon: ({focused}) => <TabIcon icon="list" label="Orders" focused={focused}/> 
               }}
              />
             <Tab.Screen 
               name="ProfileStack" 
               component={ProfileStack}
               options={{
-                tabBarIcon:({focused}) => <TabIcon icon="user" label="Perfil" focused={focused}/> 
+                tabBarIcon: ({focused}) => <TabIcon icon="user" label="Profile" focused={focused}/> 
               }}
              />
       </Tab.Navigator>
 ```
+- **Tab 1 - Products:** Categories and products (main stack).
+- **Tab 2 - Cart:** Shopping cart details with summary and checkout button.
+- **Tab 3 - Orders:** History of completed orders.
+- **Tab 4 - Profile:** User information, location, and profile image upload.
 
-- **Pestaña 1 - Productos:** Categorías y productos (stack principal).
-- **Pestaña 2 - Carrito:** Detalles del carrito de compras con resumen y botón para finalizar la orden.
-- **Pestaña 3 - Órdenes:** Historial de órdenes realizadas.
-- **Pestaña 4 - Perfil:** Información del usuario, ubicación y carga de imagen de perfil.
+## Technologies Used
+- **Firebase Authentication:** Implements Firebase authentication system to manage app security.
+- **React Native Navigation Stack:** Manages navigation between screens.
+- **React Native Navigation Bottom Tab:** Manages navigation between tabs.
+- **Expo-Location:** Provides access and management of user location.
+- **Expo-Image-Picker:** Facilitates profile image upload.
+- **Redux:** Centralizes and manages the application state.
+- **RTK Query and Firebase:** Performs read/write operations in the database.
+- 
+## Installation
+1. Clone the repository: `git clone https://github.com/your-username/your-app.git`
+2. Install dependencies: `npm install`
+3. Configure API keys for external services (Expo-Location, Firebase, etc.).
+4. Set up Firebase credentials in your project.
+5. Run the application: `npm start`
 
-## Tecnologías Utilizadas
+## Contact
 
-- **Firebase Authentication:** Implementa el sistema de autenticación de Firebase para gestionar la seguridad de la aplicación.
-- **React Native Navigation Stack:** Gestiona la navegación entre pantallas.
-- **React Native Navigation Buttom tap:** Gestiona la navegación entre pestañas.
-- **Expo-Location:** Permite acceder y gestionar la ubicación del usuario.
-- **Expo-Picker-Image:** Facilita la carga de imágenes de perfil.
-- **Redux:** Centraliza y gestiona el estado de la aplicación.
-- **RTK Query y Firebase:** Realiza operaciones de lectura/escritura en la base de datos.
-
-## Instalación
-
-1. Clona el repositorio: `git clone https://github.com/tu-usuario/tu-aplicacion.git`
-2. Instala las dependencias: `npm install`
-3. Configura las claves de API para servicios externos (Expo-Location, Firebase, etc.).
-4. Configura las credenciales de Firebase en tu proyecto.
-5. Ejecuta la aplicación: `npm start`
-
-## Contacto
 
