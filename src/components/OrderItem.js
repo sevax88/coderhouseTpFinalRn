@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         borderRadius: 10,
-        backgroundColor: colors.backgroundLight,
     },
     containerText: {
         gap: 10,
@@ -45,11 +44,9 @@ const styles = StyleSheet.create({
     },
     date: {
         fontSize: 14,
-        color: colors.textLight
     },
     total: {
         fontSize: 18,
         fontWeight: "600",
-        color: colors.textDark
     }
 })
