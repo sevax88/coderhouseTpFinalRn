@@ -25,26 +25,31 @@ const OrderItem = ({item}) => {
 export default OrderItem
 
 const styles = StyleSheet.create({
-    container:{
-        borderColor:colors.blue3,
-        borderWidth:2,
-        width:"90%",
-        marginHorizontal:"5%",
-        marginVertical:10,
-        padding:20,
-        flexDirection:"row",
-        justifyContent:"space-between",
-        alignItems:"center",
-        borderRadius:3
+    container: {
+        borderColor: colors.blue1,
+        borderWidth: 1,
+        width: "95%",
+        marginHorizontal: "2.5%",
+        marginVertical: 15,
+        padding: 25,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        borderRadius: 10,
+        backgroundColor: colors.backgroundLight,
     },
-    containerText:{
-        gap:20
+    containerText: {
+        gap: 10,
+        flexDirection: "column",
+        alignItems: "flex-start"
     },
-    date:{
-        fontSize:16
+    date: {
+        fontSize: 14,
+        color: colors.textLight
     },
-    total:{
-        fontSize:20,
-        fontWeight:"bold"
+    total: {
+        fontSize: 18,
+        fontWeight: "600",
+        color: colors.textDark
     }
 })
