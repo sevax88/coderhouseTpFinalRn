@@ -14,8 +14,7 @@ An e-commerce application developed with React Native that offers a complete and
 - **User Information:** Displays user details such as name and address and let the user select an address where to ship 
 - products.
 
-  <img src="./screenshot/Screenshot-account.png" width="300" >
-  
+  <img src="./screenshot/Screenshot-account.png" width="300" >  
   <img src="./screenshot/Screenshot_pick_location.png" width="300" >
 
 
@@ -44,7 +43,9 @@ An e-commerce application developed with React Native that offers a complete and
 -List of orders. 
 
 ### Orders Details
-- Show the details of the order. Including total ,date, address to be delivered, amount, products and quantity of each protal.
+- Show the details of the order. Including total ,date, address to be delivered,
+  amount, products and quantity of each product.
+
   <img src="./screenshot/Screenshot_order_detail.png" width="300" >
 
 
